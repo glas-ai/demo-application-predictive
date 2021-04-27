@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="MultipleLocationsFragmentBinding">
+
+        <variable
+            name="viewModel"
+            type="com.autoencoder.glasdemoapp.main.multipleLocations.MultipleLocationsViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@color/white"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue_data"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/header_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:onClick="@{() -> viewModel.onBack()}"
+                android:src="@drawable/back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/header_title"
+                style="@style/HeaderTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:text="@{viewModel.title}"
+                app:layout_constraintBottom_toBottomOf="@id/header_icon"
+                app:layout_constraintStart_toEndOf="@id/header_icon"
+                app:layout_constraintTop_toTopOf="@id/header_icon" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/logo_header"
+                android:tint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/gas_stations_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingBottom="@dimen/margin_medium"
+            app:layout_constraintTop_toBottomOf="@id/header">
+
+            <ImageView
+                android:id="@+id/gas_station_ic"
+                imageResId="@{viewModel.icon}"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="14dp"
+                tools:src="@drawable/gas_station"
+                android:tint="@color/blue_data"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/title"
+                style="@style/DemoActivityTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:text="@{viewModel.title}"
+                tools:text="Gas Station Brands"
+                app:layout_constraintBottom_toBottomOf="@id/gas_station_ic"
+                app:layout_constraintStart_toEndOf="@id/gas_station_ic"
+                app:layout_constraintTop_toTopOf="@id/gas_station_ic" />
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_medium"
+                android:text="@{viewModel.description.empty ? @string/requesting_data : viewModel.description}"
+                android:textColor="@color/text_gray"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/title"
+                app:layout_constraintTop_toBottomOf="@id/title" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.mapbox.mapboxsdk.maps.MapView
+            android:id="@+id/gas_station_map"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:mapbox_renderTextureMode="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/gas_stations_header" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

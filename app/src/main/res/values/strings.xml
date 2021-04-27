@@ -1,0 +1,88 @@
+<resources>
+    <string name="app_name">GLAS.AI Demo</string>
+    <string name="subtitle">Your location data is being processed on-device.</string>
+    <string name="mapbox_public_token">pk.eyJ1IjoibWloYWlkb3JuZWEiLCJhIjoiY2tsdDdsZjlxMGE1dzJ2bXdwNTc0aDg5bCJ9.emqtTpD27hniDipv5hbrcQ</string>
+
+    <string name="missing_permissions">Missing Permissions</string>
+    <string name="missing_permissions_info">In order to use this demo app, we require that all the requested permissions be granted.</string>
+    <string name="ok">OK</string>
+
+    <string name="missing_play_services">Missing Play Services</string>
+    <string name="missing_play_services_info">In order to use this demo app, we require you to have Google Play Services installed.</string>
+
+    <!--    Notifications-->
+    <string name="notification_channel_name">Glas Notifications</string>
+    <string name="location_must_be_turned_on">Location must be turned on.</string>
+    <string name="notification_channel_description">Notifications Channels for location feature reminder.</string>
+    <string name="requesting_data">Requesting data. Please wait…</string>
+
+    <!--    Errors-->
+    <string name="play_services_error">Cannot start GLAS.AI. Unresolvable play services error.</string>
+
+
+    <!--    Demo List-->
+
+    <string name="demo_application">Demo Application</string>
+    <string name="home_location">Home Location</string>
+    <string name="work_location">Work Location</string>
+    <string name="heading_information">Heading Information</string>
+    <string name="points_of_interest">Points of Interest</string>
+    <string name="gas_station_brands">Gas Station Brands</string>
+    <string name="supermarket_brands">Supermarket Brands</string>
+    <string name="user_daily_schedule">User Daily Schedule</string>
+    <string name="percentage_data_acquired">%d%% of required data acquired</string>
+
+
+    <!--    Detection Criteria-->
+    <string name="home_work_location_criteria">3 days worth of data</string>
+    <string name="heading_criteria">10 trips worth of data</string>
+    <string name="poi_criteria">3 POIs gathered</string>
+    <string name="gas_station_criteria">1 gas station brand to be visited</string>
+    <string name="supermarket_criteria">1 supermarket brand to be visited</string>
+    <string name="user_daily_criteria">2 weeks worth of data</string>
+
+    <!--    User Daily Schedule-->
+
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
+    <string name="daily_schedule">Daily Schedule</string>
+    <string name="your_morning_departure_schedule">Your morning departure schedule for the next 7 days</string>
+    <string name="departure_time">%s departure time:</string>
+    <string name="arrival_time">%s arrival time:</string>
+    <string name="prediction_accuracy">Prediction accuracy: %.1f%%</string>
+    <string name="none">None</string>
+
+    <!--    Info Dialog-->
+    <string name="dialog_title">%s detection status</string>
+    <string name="percentage">%d%%</string>
+    <string name="dialog_description">Your 
+        %1$s is not yet determined.\nThe system needs at least %2$s in order to be able to reliably determine this parameter.\n\n%3$s of the required data has been gathered so far.</string>
+    <string name="internet">Internet</string>
+    <string name="gps">GPS</string>
+    <string name="feature_turn_on">%s must be turned on for this feature to work</string>
+    <string name="internet_explication">In order to display your %s on a map, we need to load this map from the Internet. No personal data is sent out of your device in the process.</string>
+    <string name="gps_explication">In order to accurately determine your %s, the application needs access to your current location. This location is processed on-device and it is not sent anywhere out of your device.</string>
+    <string name="turn_on_feature">Turn on %s</string>
+    <string name="dismiss">Dismiss</string>
+
+    <!--Heading Information-->
+    <string name="heading_predictions">Heading predictions</string>
+    <string name="heading">Heading %1$d:</string>
+    <string name="coordinates_float">%1$.4f,\t%2$.4f</string>
+    <string name="coordinates">Coordinates: %1$.5f, %2$.6f</string>
+    <string name="no_heading">No heading for this location yet. Learning route…</string>
+
+    <!--    About Dialog-->
+    <string name="about_glas_ai">Glas.AI</string>
+    <string name="application_version">Application Version:</string>
+    <string name="glas_ai_build_components">GLAS.AI Components:</string>
+    <string name="glas_ai_capabilities">GLAS.AI Capabilities:</string>
+    <string name="glas_ai_enablers">GLAS.AI Enablers:</string>
+    <string name="qt_license">Qt</string>
+
+</resources>

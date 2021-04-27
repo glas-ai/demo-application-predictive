@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "449793980640",
+    "project_id": "glasdemoapp-android",
+    "storage_bucket": "glasdemoapp-android.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:449793980640:android:be1d5723eb1522795f3885",
+        "android_client_info": {
+          "package_name": "com.autoencoder.glasdemoapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "449793980640-8a4pm5q7dfa6je4mabnuvjm7kp11i057.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDo9VTmYLglQ7ZjZnO0KSCBdqKIvDzIKPI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "449793980640-8a4pm5q7dfa6je4mabnuvjm7kp11i057.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="HeadingInformationFragmentBinding">
+
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.autoencoder.glasdemoapp.main.headingInformation.HeadingInformationViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/blue_data"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <ImageView
+                android:id="@+id/header_icon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginBottom="@dimen/margin_medium"
+                android:onClick="@{() -> viewModel.onBack()}"
+                android:src="@drawable/back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/header_title"
+                style="@style/HeaderTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium"
+                android:text="@string/heading_information"
+                app:layout_constraintBottom_toBottomOf="@id/header_icon"
+                app:layout_constraintStart_toEndOf="@id/header_icon"
+                app:layout_constraintTop_toTopOf="@id/header_icon" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:src="@drawable/logo_header"
+                android:tint="@color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="ContentDescription" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/heading_information_header"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:paddingBottom="@dimen/margin_medium"
+            app:layout_constraintTop_toBottomOf="@id/header">
+
+            <ImageView
+                android:id="@+id/heading_information_ic"
+                android:layout_width="38dp"
+                android:layout_height="38dp"
+                android:layout_marginStart="13dp"
+                android:layout_marginTop="14dp"
+                android:src="@drawable/heading_information"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:tint="@color/blue_data"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/heading_information_title"
+                style="@style/DemoActivityTitle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="13dp"
+                android:text="@string/heading_predictions"
+                app:layout_constraintBottom_toBottomOf="@id/heading_information_ic"
+                app:layout_constraintStart_toEndOf="@id/heading_information_ic"
+                app:layout_constraintTop_toTopOf="@id/heading_information_ic" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/heading_information"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/margin_medium_large"
+                android:orientation="vertical"
+                android:visibility="@{viewModel.headingItems.empty ?  View.GONE : View.VISIBLE }"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/heading_information_title"
+                app:layout_constraintTop_toBottomOf="@id/heading_information_title"
+                app:layout_constraintVertical_bias="0"
+                tools:itemCount="3"
+                tools:listitem="@layout/item_heading"
+                tools:visibility="gone" />
+
+            <TextView
+                android:id="@+id/no_heading"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:visibility="@{viewModel.headingItems.empty ?  View.VISIBLE : View.GONE }"
+                android:layout_marginTop="@dimen/margin_small"
+                app:layout_constraintTop_toBottomOf="@id/heading_information_title"
+                app:layout_constraintStart_toStartOf="@id/heading_information_title"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:text="@string/no_heading"
+                android:textColor="@color/text_gray"
+                android:textSize="15sp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.mapbox.mapboxsdk.maps.MapView
+            android:id="@+id/heading_information_map"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/heading_information_header"
+            app:mapbox_renderTextureMode="true" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

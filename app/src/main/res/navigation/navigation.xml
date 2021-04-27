@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.autoencoder.glasdemoapp.main.splash.SplashFragment"
+        android:label="SplashFragment"
+        tools:layout="@layout/fr_splash">
+        <action
+            android:id="@+id/action_splashFragment_to_listFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"
+            app:destination="@id/listFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/listFragment"
+        android:name="com.autoencoder.glasdemoapp.main.list.ListFragment"
+        android:label="ListFragment"
+        tools:layout="@layout/fr_list">
+        <argument
+            android:name="items"
+            app:argType="string"/>
+        <action
+            android:id="@+id/action_listFragment_to_userDailyScheduleFragment"
+            app:destination="@id/userDailyScheduleFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_headingInformationFragment"
+            app:destination="@id/headingInformationFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_gasStationsFragment"
+            app:destination="@id/gasStationsFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_workLocationFragment"
+            app:destination="@id/workLocationFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_homeLocationFragment"
+            app:destination="@id/homeLocationFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_supermarketsFragment"
+            app:destination="@id/supermarketsFragment" />
+        <action
+            android:id="@+id/action_listFragment_to_pointsOfInterestFragment"
+            app:destination="@id/pointsOfInterestFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/userDailyScheduleFragment"
+        android:name="com.autoencoder.glasdemoapp.main.userSchedule.UserDailyScheduleFragment"
+        android:label="UserDailyScheduleFragment"
+        tools:layout="@layout/fr_user_daily_schedule" />
+
+    <fragment
+        android:id="@+id/headingInformationFragment"
+        android:name="com.autoencoder.glasdemoapp.main.headingInformation.HeadingInformationFragment"
+        android:label="HeadingInformationFragment"
+        tools:layout="@layout/fr_heading_information" />
+
+    <fragment
+        android:id="@+id/gasStationsFragment"
+        android:name="com.autoencoder.glasdemoapp.main.multipleLocations.gasStations.GasStationsFragment"
+        android:label="GasStationsFragment"
+        tools:layout="@layout/fr_multiple_locations" />
+
+    <fragment
+        android:id="@+id/supermarketsFragment"
+        android:name="com.autoencoder.glasdemoapp.main.multipleLocations.supermarkets.SupermarketsFragment"
+        android:label="SupermarketsFragment"
+        tools:layout="@layout/fr_multiple_locations" />
+
+    <fragment
+        android:id="@+id/homeLocationFragment"
+        android:name="com.autoencoder.glasdemoapp.main.location.home.HomeLocationFragment"
+        android:label="HomeLocationFragment"
+        tools:layout="@layout/fr_location" />
+
+    <fragment
+        android:id="@+id/workLocationFragment"
+        android:name="com.autoencoder.glasdemoapp.main.location.work.WorkLocationFragment"
+        android:label="WorkLocationFragment"
+        tools:layout="@layout/fr_location" />
+
+    <fragment
+        android:id="@+id/pointsOfInterestFragment"
+        android:name="com.autoencoder.glasdemoapp.main.multipleLocations.pointsOfInterest.PointsOfInterestFragment"
+        android:label="PointsOfInterestFragment"
+        tools:layout="@layout/fr_multiple_locations" />
+
+</navigation>

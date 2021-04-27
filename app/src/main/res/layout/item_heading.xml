@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="HeadingInformationItemBinding">
+        <variable
+            name="viewModel"
+            type="com.autoencoder.glasdemoapp.models.HeadingInformationItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/title"
+            heading_color="@{viewModel.headingNo}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:text="@{viewModel.headingName}"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:maxLines="1"
+            android:ellipsize="end"
+            android:maxEms="4"
+            android:minEms="4"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Heading 1"
+            tools:textColor="@color/blue_data" />
+
+        <TextView
+            android:id="@+id/probability"
+            heading_color="@{viewModel.headingNo}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            tools:text="33%"
+            android:textStyle="bold"
+            percentage="@{viewModel.probability}"
+            app:layout_constraintStart_toEndOf="@id/title"
+            app:layout_constraintBaseline_toBaselineOf="@id/title"
+            android:layout_marginStart="@dimen/margin_small"
+            android:textSize="16sp" />
+
+
+        <TextView
+            android:id="@+id/lat_lng"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:text="@{@string/coordinates_float(viewModel.lat, viewModel.lng)}"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBaseline_toBaselineOf="@id/title"
+            app:layout_constraintStart_toEndOf="@id/probability" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

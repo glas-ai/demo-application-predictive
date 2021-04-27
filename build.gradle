@@ -1,0 +1,94 @@
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
+buildscript {
+
+    ext {
+        build_gradle = '4.1.1'
+        kotlin = '1.4.21'
+        app_compat = '1.0.2'
+        androidx_core = '1.3.0'
+        androidx_fragment = '1.2.5'
+        androidx_appcompat = '1.1.0'
+        androidx_annotation = '1.1.0'
+        androidx_legacy = '1.0.0'
+        androidx_constraint = '2.0.0-rc1'
+        androidx_recyclerview = '1.1.0'
+        androidx_cardview = '1.0.0'
+        gms_services = '4.3.4'
+        crashlytics_version = '2.2.0'
+        fabric_gradle = '1.31.0'
+        lifecycle_version = '2.2.0'
+        work_version = "2.4.0"
+        coroutines_version = '1.3.8'
+        material = '1.2.0-beta01'
+        koin_version = '2.0.1'
+        java_version = JavaVersion.VERSION_1_8
+        nav_version = '2.3.0'
+        anko = '0.10.8'
+        rx_permissions = '0.10.2'
+        rx_android = '2.1.1'
+        hawk = '2.0.1'
+        spin_kit = '1.4.0'
+        firebase_version = '25.12.0'
+        firebase_crashlytics_version = '17.2.2'
+        firebase_app_distribution = '2.0.1'
+        retrofit = '2.9.0'
+        gson = '2.8.6'
+        converters = '2.9.0'
+        logging_interceptor = '4.8.0'
+        junit = '1.1.2-rc01'
+        arch_core_testing = '2.1.0'
+        test_core = '1.3.0-rc01'
+        progress_bar = '2.5.0'
+        map_box = '9.6.1'
+        location_services = '18.0.0'
+        markers = '0.4.0'
+        mapbox_plugins = '0.9.0'
+    }
+
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://plugins.gradle.org/m2" }
+        maven { url "https://maven.fabric.io/public" }
+        maven { url 'https://jitpack.io' }
+    }
+
+    dependencies {
+        classpath "com.android.tools.build:gradle:4.1.2"
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin"
+        classpath "com.google.gms:google-services:4.3.5"
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:$nav_version"
+        classpath "com.google.firebase:firebase-crashlytics-gradle:2.5.0"
+    }
+
+    // NOTE: Do not place your application dependencies here; they belong
+    // in the individual module build.gradle files
+}
+
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+        maven { url "https://plugins.gradle.org/m2" }
+        maven { url "https://maven.fabric.io/public" }
+        maven { url 'https://jitpack.io' }
+        maven {
+            url 'https://api.mapbox.com/downloads/v2/releases/maven'
+            authentication {
+                basic(BasicAuthentication)
+            }
+            credentials {
+                // Do not change the username below.
+                // This should always be `mapbox` (not your username).
+                username = 'mapbox'
+                // Use the secret token you stored in gradle.properties as the password
+                password = project.properties['MAPBOX_DOWNLOADS_TOKEN'] ?: ""
+            }
+        }
+    }
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

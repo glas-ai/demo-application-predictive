@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="DemoActivityItemBinding">
+
+        <variable
+            name="viewModel"
+            type="com.autoencoder.glasdemoapp.models.DemoActivityItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:padding="2dp"
+            android:src="@drawable/gray_ring"
+            app:layout_constraintBottom_toBottomOf="@id/progress_bar"
+            app:layout_constraintEnd_toEndOf="@id/progress_bar"
+            app:layout_constraintStart_toStartOf="@id/progress_bar"
+            app:layout_constraintTop_toTopOf="@id/progress_bar"
+            tools:ignore="ContentDescription" />
+
+        <com.github.rahatarmanahmed.cpv.CircularProgressView
+            android:id="@+id/progress_bar"
+            progress_color="@{viewModel.percentage}"
+            android:layout_width="@dimen/progress_bar_size"
+            android:layout_height="@dimen/progress_bar_size"
+            android:layout_marginStart="@dimen/margin_medium_large"
+            android:background="@null"
+            app:cpv_maxProgress="100"
+            app:cpv_progress="40"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/icon"
+            imageResId="@{viewModel.service.drawable}"
+            progress_color="@{viewModel.percentage}"
+            adjust_padding="@{viewModel.service}"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            tools:padding="18dp"
+            app:layout_constraintBottom_toBottomOf="@id/progress_bar"
+            app:layout_constraintEnd_toEndOf="@id/progress_bar"
+            app:layout_constraintStart_toStartOf="@id/progress_bar"
+            app:layout_constraintTop_toTopOf="@id/progress_bar"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/home" />
+
+        <TextView
+            android:id="@+id/title"
+            style="@style/DemoActivityTitle"
+            android:layout_width="0dp"
+            android:layout_height="28dp"
+            android:layout_marginStart="@dimen/margin_small"
+            android:layout_marginTop="18dp"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:text="@{viewModel.service.title}"
+            app:layout_constraintEnd_toStartOf="@id/next"
+            app:layout_constraintStart_toEndOf="@id/progress_bar"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Home Location" />
+
+        <TextView
+            android:id="@+id/percentage"
+            progress_color="@{viewModel.percentage}"
+            android:layout_width="0dp"
+            android:layout_height="23dp"
+            android:text="@{@string/percentage_data_acquired(viewModel.percentage)}"
+            app:autoSizeMaxTextSize="15sp"
+            app:autoSizeTextType="uniform"
+            app:layout_constraintEnd_toEndOf="@id/title"
+            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            tools:text="62% of required data acquired" />
+
+        <View
+            android:id="@+id/delimiter"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="18dp"
+            android:background="@color/gray"
+            app:layout_constraintTop_toBottomOf="@id/percentage" />
+
+        <ImageView
+            android:id="@+id/next"
+            enabled_percentage="@{viewModel.percentage}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_medium_large"
+            android:src="@drawable/ic_next"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

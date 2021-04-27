@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="UserDailyScheduleItemBinding">
+
+        <variable
+            name="viewModel"
+            type="com.autoencoder.glasdemoapp.models.UserDailyScheduleItem" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/icon"
+            imageResId="@{viewModel.day.drawable}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="18dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            tools:src="@drawable/mon" />
+
+        <TextView
+            android:id="@+id/departure_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_medium"
+            android:layout_marginEnd="@dimen/margin_medium"
+            android:fontFamily="sans-serif"
+            android:text="@{viewModel.time == null ? @string/none : viewModel.time}"
+            android:textAllCaps="true"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="08:20 AM" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="@dimen/margin_small"
+            android:fontFamily="sans-serif"
+            day_text="@{viewModel.day.displayName}"
+            is_arrival="@{viewModel.isArrival}"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@id/departure_time"
+            app:layout_constraintStart_toEndOf="@id/icon"
+            app:layout_constraintTop_toTopOf="@id/departure_time"
+            tools:text="Monday departure time:" />
+
+        <TextView
+            android:id="@+id/prediction_accuracy"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{@string/prediction_accuracy(viewModel.predictionAccuracy * 100)}"
+            android:textColor="@color/blue_data"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="@id/title"
+            app:layout_constraintStart_toStartOf="@id/title"
+            app:layout_constraintTop_toBottomOf="@id/title"
+            tools:text="Prediction accuracy: 45%" />
+
+        <View
+            android:id="@+id/delimiter"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/gray"
+            app:layout_constraintTop_toBottomOf="@id/icon" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

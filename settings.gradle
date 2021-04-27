@@ -1,0 +1,3 @@
+include ':glas.ai.sdk'
+include ':app'
+rootProject.name = "GlasDemoApp"

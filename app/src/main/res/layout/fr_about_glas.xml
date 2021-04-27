@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data class="AboutGlassFragmentBinding">
+
+        <variable
+            name="viewModel"
+            type="com.autoencoder.glasdemoapp.main.about.glas.AboutGlasViewModel" />
+    </data>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium_large"
+                android:text="@string/about_glas_ai"
+                android:textColor="@color/black"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/app_version_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_medium_large"
+                android:layout_marginTop="@dimen/margin_medium_large"
+                android:text="@string/application_version"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/title" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:text="@{viewModel.applicationVersion}"
+                android:textColor="@color/black"
+                app:layout_constraintBaseline_toBaselineOf="@id/app_version_label"
+                app:layout_constraintStart_toEndOf="@id/app_version_label"
+                tools:text="1.0.0" />
+
+            <TextView
+                android:id="@+id/build_components_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/glas_ai_build_components"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/app_version_label"
+                app:layout_constraintTop_toBottomOf="@id/app_version_label" />
+
+            <TextView
+                android:id="@+id/build_components"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_medium_large"
+                android:text="@{viewModel.buildComponents}"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/build_components_label"
+                app:layout_constraintTop_toBottomOf="@id/build_components_label" />
+
+            <TextView
+                android:id="@+id/capabilities_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/glas_ai_capabilities"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/app_version_label"
+                app:layout_constraintTop_toBottomOf="@id/build_components" />
+
+            <TextView
+                android:id="@+id/no_capabilities"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:text="@string/none"
+                android:textColor="@color/black"
+                app:layout_constraintBaseline_toBaselineOf="@id/capabilities_label"
+                app:layout_constraintStart_toEndOf="@id/capabilities_label" />
+
+            <TextView
+                android:id="@+id/capabilities"
+                visible="@{!viewModel.capabilities.empty}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_medium_large"
+                android:text="@{viewModel.capabilities}"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/capabilities_label"
+                app:layout_constraintTop_toBottomOf="@id/capabilities_label" />
+
+            <TextView
+                android:id="@+id/enablers_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:text="@string/glas_ai_enablers"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="@id/app_version_label"
+                app:layout_constraintTop_toBottomOf="@id/capabilities" />
+
+            <TextView
+                android:id="@+id/no_enablers"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:text="@string/none"
+                android:textColor="@color/black"
+                app:layout_constraintBaseline_toBaselineOf="@id/enablers_label"
+                app:layout_constraintStart_toEndOf="@id/enablers_label" />
+
+            <TextView
+                android:id="@+id/enablers"
+                visible="@{!viewModel.enablers.empty}"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/margin_small"
+                android:layout_marginTop="@dimen/margin_medium"
+                android:layout_marginEnd="@dimen/margin_medium_large"
+                android:text="@{viewModel.enablers}"
+                android:textColor="@color/black"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@id/enablers_label"
+                app:layout_constraintTop_toBottomOf="@id/enablers_label" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.core.widget.NestedScrollView>
+</layout>

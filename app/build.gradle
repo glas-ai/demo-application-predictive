@@ -1,0 +1,128 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'kotlin-android-extensions'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "com.autoencoder.glasdemoapp"
+        minSdkVersion 26
+        targetSdkVersion 30
+        versionCode 7
+        versionName "1.0.1"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    androidExtensions {
+        experimental = true
+    }
+
+    buildFeatures {
+        dataBinding = true
+        viewBinding = true
+    }
+
+    compileOptions {
+        sourceCompatibility rootProject.java_version
+        targetCompatibility rootProject.java_version
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+}
+
+dependencies {
+
+    // Kotlin & Coroutines
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$rootProject.kotlin"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$rootProject.coroutines_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$rootProject.coroutines_version"
+
+    // Worker
+    implementation "androidx.work:work-runtime-ktx:$rootProject.work_version"
+    implementation "androidx.work:work-rxjava2:$rootProject.work_version"
+    implementation "androidx.work:work-gcm:$rootProject.work_version"
+
+    // Lifecycle, LiveData, ViewModel
+    implementation "androidx.lifecycle:lifecycle-extensions:$rootProject.lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:$rootProject.lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$rootProject.lifecycle_version"
+
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:$rootProject.nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$rootProject.nav_version"
+
+    // Android defaults
+    implementation "androidx.core:core-ktx:$rootProject.androidx_core"
+    implementation "androidx.fragment:fragment-ktx:$rootProject.androidx_fragment"
+    implementation "androidx.appcompat:appcompat:$rootProject.androidx_appcompat"
+    implementation "androidx.annotation:annotation:$rootProject.androidx_annotation"
+    implementation "androidx.legacy:legacy-support-v4:$rootProject.androidx_legacy"
+    implementation "androidx.constraintlayout:constraintlayout:$rootProject.androidx_constraint"
+    implementation "androidx.recyclerview:recyclerview:$rootProject.androidx_recyclerview"
+    implementation "androidx.cardview:cardview:$rootProject.androidx_cardview"
+    implementation "com.google.android.material:material:$rootProject.material"
+
+    // Firebase
+    implementation platform("com.google.firebase:firebase-bom:${rootProject.firebase_version}")
+    implementation 'com.google.firebase:firebase-messaging'
+    implementation 'com.google.firebase:firebase-analytics-ktx'
+    implementation "com.google.firebase:firebase-crashlytics-ktx:${rootProject.firebase_crashlytics_version}"
+
+    // Koin
+    implementation "org.koin:koin-core:$rootProject.koin_version"
+    implementation "org.koin:koin-android:$rootProject.koin_version"
+    implementation "org.koin:koin-androidx-scope:$rootProject.koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$rootProject.koin_version"
+
+    // Anko threading
+    implementation "org.jetbrains.anko:anko:$rootProject.anko"
+
+    // Networking
+    implementation "com.squareup.retrofit2:retrofit:$rootProject.retrofit"
+    implementation "com.google.code.gson:gson:$rootProject.gson"
+    implementation "com.squareup.retrofit2:converter-gson:$rootProject.converters"
+    implementation "com.squareup.okhttp3:logging-interceptor:$rootProject.logging_interceptor"
+
+    // Permissions
+    implementation "com.github.tbruyelle:rxpermissions:$rootProject.rx_permissions"
+    implementation "io.reactivex.rxjava2:rxandroid:$rootProject.rx_android"
+    implementation "com.github.ybq:Android-SpinKit:$spin_kit"
+
+    // Hawk
+    implementation "com.orhanobut:hawk:$rootProject.hawk"
+    implementation 'com.google.firebase:firebase-crashlytics:17.3.1'
+    implementation 'com.google.firebase:firebase-analytics:18.0.2'
+
+    // Testing
+    testImplementation "androidx.test.ext:junit:$rootProject.junit"
+    testImplementation "androidx.arch.core:core-testing:$rootProject.arch_core_testing"
+    testImplementation "androidx.test:core:$rootProject.test_core"
+
+    implementation "com.github.rahatarmanahmed:circularprogressview:$rootProject.progress_bar"
+    implementation "com.mapbox.mapboxsdk:mapbox-android-sdk:$rootProject.map_box"
+    implementation "com.google.android.gms:play-services-location:$rootProject.location_services"
+    implementation "com.mapbox.mapboxsdk:mapbox-android-plugin-markerview-v9:$rootProject.markers"
+    implementation "com.mapbox.mapboxsdk:mapbox-android-plugin-annotation-v9:$rootProject.mapbox_plugins"
+
+
+
+    implementation project(":glas.ai.sdk")
+}
+
+apply plugin: 'com.google.gms.google-services'
+apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: 'com.google.firebase.crashlytics'
