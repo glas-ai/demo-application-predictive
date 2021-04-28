@@ -56,7 +56,7 @@ Checkout the code, load the project in Android Studio and build it.
 
 ## Installation
 
-You can either use Android Studio to build an APK and deploy it on your device, or you can download a pre-built APK from [here](https://docs.glas.ai/)
+You can either use Android Studio to build an APK and deploy it on your device, or you can download a pre-built APK from [here](https://github.com/glas-ai/demo-application-predictive/releases/download/v1.0.1/glas-ai-demo-application-predictive.apk)
 
 ## Usage
 
